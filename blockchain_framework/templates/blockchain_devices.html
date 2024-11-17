@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Devices Status</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='styles.css') }}>
+</head>
+<body>
+    <div class="container">
+        <h1>Blockchain Devices Status</h1>
+        <div class="devices">
+            <!-- Device 1 -->
+            <div class="device" id="device1">
+                <div class="header">
+                    <span class="status green"></span>
+                    <h2>Device 1</h2>
+                </div>
+                <div class="description">
+                    <p><strong>Current Task:</strong> Training</p>
+                    <p><strong>Training Progress:</strong> 45%</p>
+                    
+                    <!-- Description for Params -->
+                    <details>
+                    <summary><strong>Current Params:</strong></summary>
+                        <p><strong><em>model (*, fit_intercept=True, copy_X=True, n_jobs=None, positive=False)</em></strong></p>
+                    </details>
+                    <br>
+                    <!-- Summary of Previous Results -->
+                    <details>
+                    <summary><strong>Previous Results:</strong></summary>
+                        <li>Accuracy: 80%</li>
+                        <li>Loss: 0.2</li>
+                        <li>Time: 2 hours</li>
+                    </details><br>
+                    <!-- Button to open the data aggregation modal -->
+                    <button id="openModal1" class="modal-btn">Data Approx Aggregation</button>
+                </div>
+            </div>
+
+            <!-- Device 2 -->
+            <div class="device" id="device2">
+                <div class="header">
+                    <span class="status red"></span>
+                    <h2>Device 2</h2>
+                </div>
+                <div class="description">
+                    <p><strong>Current Task:</strong> Idle</p>
+                    <p><strong>Training Progress:</strong> N/A</p>
+
+                    <!-- Description for Params -->
+                    <details>
+                    <summary><strong>Current Params:</strong></summary>
+                        <p><strong>No params available.</strong></p>
+                    </details>
+                    <br>
+                    <!-- Summary of Previous Results -->
+                    <details>
+                    <summary><strong>Previous Results:</strong></summary>
+                        <p>No previous results available.</p>
+                    </details><br>
+                    
+                    <!-- Button to open the data aggregation modal -->
+                    <button id="openModal2" class="modal-btn">Data Approx Aggregation</button>
+                </div>
+            </div>
+
+            <!-- Device 3 -->
+            <div class="device" id="device3">
+                <div class="header">
+                    <span class="status green"></span>
+                    <h2>Device 3</h2>
+                </div>
+                <div class="description">
+                    <p><strong>Current Task:</strong> Training</p>
+                    <p><strong>Training Progress:</strong> 85%</p>
+
+                    <!-- Description for Params -->
+                    <details>
+                    <summary><strong>Current Params:</strong></summary>
+                        <p><strong><em>model (*, fit_intercept=True, copy_X=True, n_jobs=None, positive=False)</em></strong></p>
+                    </details>
+                    <br>
+                    <!-- Summary of Previous Results -->
+                    <details>
+                    <summary><strong>Previous Results:</strong></summary>
+                        <li>Accuracy: 87%</li>
+                        <li>Loss: 0.1</li>
+                        <li>Time: 3 hours</li>
+                    </details><br>
+
+                    <!-- Button to open the data aggregation modal -->
+                    <button id="openModal3" class="modal-btn">Data Approx Aggregation</button>
+                </div>
+            </div>
+
+            <!-- Device 4 -->
+            <!-- <div class="device" id="device4">
+                <div class="header">
+                    <span class="status red"></span>
+                    <h2>Device 4</h2>
+                </div>
+                <div class="description">
+                    <p><strong>Current Task:</strong> Testing</p>
+                    <p><strong>Training Progress:</strong> Testing phase</p>
+
+                    Description for Params
+                    <details>
+                    <summary><strong>Current Params:</strong></summary>
+                        <p><strong><em>model (*, fit_intercept=True, copy_X=True, n_jobs=None, positive=False)</em></strong></p>
+                    </details>
+                    <br>
+                    Summary of Previous Results
+                    <details>
+                    <summary><strong>Previous Results:</strong></summary><br>
+                        <li>Accuracy: 75%</li>
+                        <li>Loss: 0.3</li>
+                        <li>Time: 1 hour</li>
+                    </details><br>
+
+                    Button to open the data aggregation modal
+                    <button id="openModal4" class="modal-btn">Data Approx Aggregation</button>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Modal for Device 1 -->
+    <div id="dataModal1" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal1">&times;</span>
+            <h2>Data Aggregation Results for Device 1</h2>
+            <p>This is where the aggregated data will appear for Device 1.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Device 2 -->
+    <div id="dataModal2" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal2">&times;</span>
+            <h2>Data Aggregation Results for Device 2</h2>
+            <p>This is where the aggregated data will appear for Device 2.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Device 3 -->
+    <div id="dataModal3" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal3">&times;</span>
+            <h2>Data Aggregation Results for Device 3</h2>
+            <p>This is where the aggregated data will appear for Device 3.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Device 4 -->
+    <div id="dataModal4" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal4">&times;</span>
+            <h2>Data Aggregation Results for Device 4</h2>
+            <p>This is where the aggregated data will appear for Device 4.</p>
+        </div>
+    </div>
+
+    <script src={{ url_for('static', filename='script.js') }}></script>
+    <script>
+        // WHen this template is loaded, parmater is passed to the function called devices. console.log it
+        document.addEventListener('DOMContentLoaded', function() {
+            let device_activity = '{{ device_activity | tojson }}';
+            console.log(device_activity);
+            let blockchain = '{{ chain | tojson }}';
+            console.log(blockchain);
+        });
+    </script>
+</body>
+</html>

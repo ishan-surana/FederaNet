@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Device</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Register a New Device</h1>
+        <form id="registerForm" method="POST" action="/register_device">
+            <label for="device_id">Device ID:</label>
+            <input type="text" id="device_id" name="device_id" placeholder="Enter Device ID" required>
+            
+            <label for="public_key">Public Key:</label>
+            <input type="text" id="public_key" name="public_key" placeholder="Enter Public Key" required>
+            
+            <button type="submit" class="modal-btn">Register Device</button>
+        </form>
+        <p id="message"></p>
+    </div>
+    <script>
+        // Handle error that arises when the form is submitted (i.e., return render_template('register_device.html', error="Device already registered."))
+        document.addEventListener('DOMContentLoaded', function() {
+            let error = "{{ error }}";
+            console.log(error);
+            if (error) {
+                document.getElementById("message").textContent = error;
+                document.getElementById("registerForm").addEventListener("submit", function(e) {
+                });
+            }
+            error = "";
+        });
+    </script>
+</body>
+</html>

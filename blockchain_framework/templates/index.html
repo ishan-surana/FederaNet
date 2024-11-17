@@ -1,0 +1,23 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Blockchain App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Blockchain App</h1>
+        <p class="intro-text">What would you like to do?</p>
+        <div class="options">
+            <a href="{{ url_for('register_device') }}" class="option-btn">Register a Device</a>
+            <a href="{{ url_for('blockchain_devices') }}" class="option-btn">Blockchain Devices Status</a>
+            <a href="{{ url_for('submit_update') }}" class="option-btn">Submit Model Update</a>
+            <a href="{{ url_for('heartbeat') }}" class="option-btn">Update Device Status</a>
+            <a href="{{ url_for('get_blockchain') }}" class="option-btn">View Blockchain</a>
+        </div>
+    </div>
+</body>
+</html>

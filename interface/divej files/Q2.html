@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Devices Status</title>
+    <link rel="stylesheet" href="Style.css">
+    <style>
+        /* Basic styling for the navbar */
+        nav {
+            margin-bottom: 10em;
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            float: left;
+        }
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            background-color: #111;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blockchain Devices Status</h1>
+        
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <li><a href="device_overview.html">Device Overview</a></li>
+                <li><a href="activity_log.html">Activity Log</a></li>
+            </ul>
+        </nav>
+
+        <div class="devices">
+            <!-- Device 1 -->
+            <div class="device">
+                <div class="header">
+                    <span class="status green"></span>
+                    <h2>Device 1</h2>
+                </div>
+                <div class="description">
+                    <p><strong>Current Task:</strong> Training</p>
+                    <p><strong>Training Progress:</strong> 45%</p>
+                    
+                    <!-- Dropdown for Params -->
+                    <p><strong>Current Params:</strong></p>
+                    <select>
+                        <option value="param1">X = 0.8, Y = 0.3</option>
+                        <option value="param2">X = 0.6, Y = 0.5</option>
+                        <option value="param3">X = 0.9, Y = 0.1</option>
+                    </select>
+
+                    <!-- Dropdown for Previous Results -->
+                    <p><strong>Previous Results:</strong></p>
+                    <select>
+                        <option value="result1">Accuracy: 92%</option>
+                        <option value="result2">Accuracy: 85%</option>
+                        <option value="result3">Accuracy: 88%</option>
+                    </select>
+
+                    <!-- Button to open the data aggregation modal -->
+                    <button id="openModal1" class="modal-btn">Data Approx Aggregation</button>
+                </div>
+            </div>
+
+            <!-- Device 2 -->
+            <div class="device">
+                <div class="header">
+                    <span class="status red"></span>
+                    <h2>Device 2</h2>
+                </div>
+                <div class="description">
+                    <p><strong>Current Task:</strong> Idle</p>
+                    <p><strong>Training Progress:</strong> N/A</p>
+
+                    <!-- Dropdown for Params -->
+                    <p><strong>Current Params:</strong></p>
+                    <select>
+                        <option value="param1">N/A</option>
+                    </select>
+
+                    <!-- Dropdown for Previous Results -->
+                    <p><strong>Previous Results:</strong></p>
+                    <select>
+                        <option value="result1">N/A</option>
+                    </select>
+
+                    <!-- Button to open the data aggregation modal -->
+                    <button id="openModal2" class="modal-btn">Data Approx Aggregation</button>
+                </div>
+            </div>
+
+            <!-- Device 3 -->
+            <div class="device">
+                <div class="header">
+                    <span class="status green"></span>
+                    <h2>Device 3</h2>
+                </div>
+                <div class="description">
+                    <p><strong>Current Task:</strong> Training</p>
+                    <p><strong>Training Progress:</strong> 85%</p>
+
+                    <!-- Dropdown for Params -->
+                    <p><strong>Current Params:</strong></p>
+                    <select>
+                        <option value="param1">A = 0.9, B = 0.4</option>
+                        <option value="param2">A = 0.8, B = 0.6</option>
+                        <option value="param3">A = 1.0, B = 0.2</option>
+                    </select>
+
+                    <!-- Dropdown for Previous Results -->
+                    <p><strong>Previous Results:</strong></p>
+                    <select>
+                        <option value="result1">Accuracy: 87%</option>
+                        <option value="result2">Accuracy: 82%</option>
+                        <option value="result3">Accuracy: 90%</option>
+                    </select>
+
+                    <!-- Button to open the data aggregation modal -->
+                    <button id="openModal3" class="modal-btn">Data Approx Aggregation</button>
+                </div>
+            </div>
+
+            <!-- Device 4 -->
+            <div class="device">
+                <div class="header">
+                    <span class="status red"></span>
+                    <h2>Device 4</h2>
+                </div>
+                <div class="description">
+                    <p><strong>Current Task:</strong> Testing</p>
+                    <p><strong>Training Progress:</strong> Testing phase</p>
+
+                    <!-- Dropdown for Params -->
+                    <p><strong>Current Params:</strong></p>
+                    <select>
+                        <option value="param1">L = 0.5, M = 0.7</option>
+                        <option value="param2">L = 0.4, M = 0.8</option>
+                        <option value="param3">L = 0.6, M = 0.6</option>
+                    </select>
+
+                    <!-- Dropdown for Previous Results -->
+                    <p><strong>Previous Results:</strong></p>
+                    <select>
+                        <option value="result1">Accuracy: 89%</option>
+                        <option value="result2">Accuracy: 83%</option>
+                        <option value="result3">Accuracy: 91%</option>
+                    </select>
+
+                    <!-- Button to open the data aggregation modal -->
+                    <button id="openModal4" class="modal-btn">Data Approx Aggregation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Device 1 -->
+    <div id="dataModal1" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal1">&times;</span>
+            <h2>Data Aggregation Results for Device 1</h2>
+            <p>This is where the aggregated data will appear for Device 1.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Device 2 -->
+    <div id="dataModal2" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal2">&times;</span>
+            <h2>Data Aggregation Results for Device 2</h2>
+            <p>This is where the aggregated data will appear for Device 2.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Device 3 -->
+    <div id="dataModal3" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal3">&times;</span>
+            <h2>Data Aggregation Results for Device 3</h2>
+            <p>This is where the aggregated data will appear for Device 3.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Device 4 -->
+    <div id="dataModal4" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal4">&times;</span>
+            <h2>Data Aggregation Results for Device 4</h2>
+            <p>This is where the aggregated data will appear for Device 4.</p>
+        </div>
+    </div>
+
+    <script src="Script.js"></script>
+</body>
+</html>

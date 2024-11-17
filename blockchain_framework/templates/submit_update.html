@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Model Update</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Submit Model Update</h1>
+        <form id="updateForm" method="POST" action="/submit_update">
+            <label for="device_id">Device ID:</label>
+            <input type="text" id="device_id" name="device_id" placeholder="Enter Device ID" required>
+            
+            <label for="model_params">Model Params:</label>
+            <textarea id="model_params" name="model_params" placeholder="Enter Model Update" required></textarea>
+            <br>
+            <label for="model_results">Model Results:</label>
+            <textarea id="model_results" name="model_results" placeholder="Enter Model Results" required></textarea>
+            <button type="submit" class="modal-btn">Submit Update</button>
+        </form>
+        <p id="message"></p>
+    </div>
+    <!-- <script>
+        // Add JavaScript to handle form submission and display message
+        document.getElementById("updateForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            let device_id = document.getElementById("device_id").value;
+            let model_update = document.getElementById("model_update").value;
+            
+            fetch('/submit_update', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ device_id, model_update })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("message").textContent = data.message;
+            });
+        });
+    </script> -->
+</body>
+</html>

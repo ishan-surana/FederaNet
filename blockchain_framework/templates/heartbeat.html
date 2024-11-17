@@ -1,0 +1,64 @@
+<!-- heartbeat.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Heartbeat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Device Heartbeat</h1>
+        <form id="heartbeatForm" method="POST" action="/heartbeat">
+            <label for="device_id">Device ID:</label>
+            <select id="device_id" name="device_id" required>
+                <option value="" disabled selected>-- Select a device --</option>
+                {% for device in devices %}
+                <option value="{{ device }}">{{ device }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="" disabled selected>-- Select device status --</option>
+                <option value="online">Online</option>
+                <option value="offline">Offline</option>
+            </select>
+
+            <button type="submit" class="modal-btn">Send Heartbeat</button>
+        </form>
+
+        {% if message %}
+        <p id="message">{{ message }}</p>
+        {% endif %}
+    </div>
+    
+    <!-- <script>
+        document.getElementById("heartbeatForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            const formData = new FormData(this);
+
+            fetch('/heartbeat', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.text(); // or response.json() based on your response format
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                document.getElementById("message").textContent = "Heartbeat sent successfully!";
+                // Optionally reset the form or update UI accordingly
+                this.reset();
+            })
+            .catch(error => {
+                document.getElementById("message").textContent = "Error sending heartbeat: " + error.message;
+            });
+        });
+    </script> -->
+</body>
+</html>
